@@ -1,16 +1,31 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.IO;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+
+[DefaultExecutionOrder(1000)]
 public class MenuUIHandler : MonoBehaviour
 {
-    //This is the handler of the main menu scene
-
-    [SerializeField] Text PlayerNameInput;
-
-    public void StartGame()
+    public string teamName;
+    // Start is called before the first frame update
+    void Start()
     {
+
+    }
+
+    // Update is called once per frame
+    public void StartNew(){
         SceneManager.LoadScene(1);
     }
+    public void NewName(string n)
+    {
+        GameManager.Instance.teamName = n;
+    }
+
+
 }
